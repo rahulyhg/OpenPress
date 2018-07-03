@@ -1,4 +1,4 @@
-<?php include "templates/include/header.php" ?>
+<?php include "op-control/admin/header-bar.php" ?>
 
       <div id="adminHeader">
         <h2>Widget News Admin</h2>
@@ -39,5 +39,4 @@
 
       <p><a href="admin.php?action=newArticle">Add a New Article</a></p>
 
-<?php include "templates/include/footer.php" ?>
 
