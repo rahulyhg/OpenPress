@@ -58,7 +58,7 @@ class Category
   */
  
   public static function getById( $id ) {
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_HOST, DB_USERNAME, DB_PASSWORD,DB_NAME );
     $sql = "SELECT * FROM categories WHERE id = :id";
     $st = $conn->prepare( $sql );
     $st->bindValue( ":id", $id, PDO::PARAM_INT );
@@ -78,7 +78,7 @@ class Category
   */
  
   public static function getList( $numRows=1000000, $order="name ASC" ) {
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME );
     $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM categories
             ORDER BY " . mysql_escape_string($order) . " LIMIT :numRows";
  
@@ -110,7 +110,7 @@ class Category
     if ( !is_null( $this->id ) ) trigger_error ( "Category::insert(): Attempt to insert a Category object that already has its ID property set (to $this->id).", E_USER_ERROR );
  
     // Insert the Category
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME );
     $sql = "INSERT INTO categories ( name, description ) VALUES ( :name, :description )";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
@@ -131,7 +131,7 @@ class Category
     if ( is_null( $this->id ) ) trigger_error ( "Category::update(): Attempt to update a Category object that does not have its ID property set.", E_USER_ERROR );
     
     // Update the Category
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME );
     $sql = "UPDATE categories SET name=:name, description=:description WHERE id = :id";
     $st = $conn->prepare ( $sql );
     $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
@@ -152,7 +152,7 @@ class Category
     if ( is_null( $this->id ) ) trigger_error ( "Category::delete(): Attempt to delete a Category object that does not have its ID property set.", E_USER_ERROR );
  
     // Delete the Category
-    $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+    $conn = new PDO( DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME );
     $st = $conn->prepare ( "DELETE FROM categories WHERE id = :id LIMIT 1" );
     $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
     $st->execute();
