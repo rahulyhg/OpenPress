@@ -11,7 +11,7 @@ define( "HOMEPAGE_NUM_ARTICLES", 5 );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "password" );
 require( CONTROL_PATH . "/Article.php" );
-require( CONTROL_PATH . "/Category.php" );
+require( CONTROL_PATH . "/category.php" );
 
 function handleException( $exception ) {
   echo "Sorry, a problem occurred. Please try later.";
