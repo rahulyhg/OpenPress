@@ -9,9 +9,9 @@ define( "CONTENT_PATH", "op-content" );
 define("CORE_PATH","op-core");
 define( "HOMEPAGE_NUM_ARTICLES", 5 );
 define( "ADMIN_USERNAME", "admin" );
-define( "ADMIN_PASSWORD", "mypass" );
-require( CLASS_PATH . "/Article.php" );
-require( CLASS_PATH . "/Category.php" );
+define( "ADMIN_PASSWORD", "password" );
+require( CONTROL_PATH . "/Article.php" );
+require( CONTROL_PATH . "/Category.php" );
 
 function handleException( $exception ) {
   echo "Sorry, a problem occurred. Please try later.";
