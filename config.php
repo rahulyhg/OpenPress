@@ -6,7 +6,7 @@ define( "DB_PASSWORD", "password" );
 define("DB_NAME","wgcms")
 define( "CONTROL_PATH", "op-control" );
 define( "CONTENT_PATH", "op-content" );
-define("ADMIN_PATH","op-admin");
+define("CORE_PATH","op-core");
 define( "HOMEPAGE_NUM_ARTICLES", 5 );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
