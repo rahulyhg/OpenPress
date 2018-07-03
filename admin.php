@@ -62,13 +62,13 @@ function login() {
 
       // Login failed: display an error message to the user
       $results['errorMessage'] = "Incorrect username or password. Please try again.";
-      require( CONTENT_PATH . "/admin/loginForm.php" );
+      require( CONTROL_PATH . "/admin/loginForm.php" );
     }
 
   } else {
 
     // User has not posted the login form yet: display the form
-    require( CONTENT_PATH . "/admin/loginForm.php" );
+    require( CONTROL_PATH . "/admin/loginForm.php" );
   }
 
 }
@@ -104,7 +104,7 @@ function newArticle() {
     $results['article'] = new Article;
     $data = Category::getList();
     $results['categories'] = $data['results'];
-    require( CONTENT_PATH . "/admin/editArticle.php" );
+    require( CONTROL_PATH . "/admin/editArticle.php" );
   }
 
 }
@@ -139,7 +139,7 @@ function editArticle() {
     $results['article'] = Article::getById( (int)$_GET['articleId'] );
     $data = Category::getList();
     $results['categories'] = $data['results'];
-    require( CONTENT_PATH . "/admin/editArticle.php" );
+    require( CONTROL_PATH . "/admin/editArticle.php" );
   }
 
 }
@@ -176,7 +176,7 @@ function listArticles() {
     if ( $_GET['status'] == "articleDeleted" ) $results['statusMessage'] = "Article deleted.";
   }
 
-  require( CONTENT_PATH . "/admin/listArticles.php" );
+  require( CONTROL_PATH . "/admin/listArticles.php" );
 }
 
  
@@ -203,7 +203,7 @@ function newCategory() {
  
     // User has not posted the category edit form yet: display the form
     $results['category'] = new Category;
-    require( TEMPLATE_PATH . "/admin/editCategory.php" );
+    require( CONTROL_PATH . "/admin/editCategory.php" );
   }
  
 }
@@ -236,7 +236,7 @@ function editCategory() {
  
     // User has not posted the category edit form yet: display the form
     $results['category'] = Category::getById( (int)$_GET['categoryId'] );
-    require( TEMPLATE_PATH . "/admin/editCategory.php" );
+    require( CONTROL_PATH . "/admin/editCategory.php" );
   }
  
 }
